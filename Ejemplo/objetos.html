@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            class Animal{
+                constructor(especie, edad, color){
+                    this.especie=especie;
+                    this.edad=edad;
+                    this.color=color;
+                }
+                mostrarInfo(){
+                    console.log(`Yo soy un ${this.especie} de ${this.edad} de color ${this.color}<br>`);
+                }
+            }
+            class Perro extends Animal{
+                constructor(especie, edad, color, peso){
+                    super(especie, edad, color);
+                    this.peso=peso;
+                }
+                mostrarInfo(){
+                    console.log(`Yo soy un ${this.especie} de ${this.edad} de color ${this.color} de peso ${this.peso}<br>`);
+                }
+                ladrar(){
+                    document.write("guau...guau<br>");
+                }
+            }
+            class Tigre extends Animal{
+                constructor(especie, edad, color, peso){
+                    super(especie, edad, color);
+                    this.peso=peso;
+                }
+                mostrarInfo(){
+                    console.log(`Yo soy un ${this.especie} de ${this.edad} de color ${this.color} de peso ${this.peso}<br>`);
+                }
+                static rugir(){
+                    document.write("grr...grrrr<br>");
+                }
+
+                //metodo setter
+                set modificarPeso(nuevoPeso){
+                    this.peso=nuevoPeso;
+                }
+
+                //metodo get(getter)
+                get getPeso(){
+                    return this.peso;
+                }
+            }
+            const perro=new Animal("perro",4,"marron");
+            const tigre=new Animal("tigre",4,"nregro y marron");
+
+            perro.mostrarInfo();
+            tigre.mostrarInfo();
+
+            const perro2=new Perro("perro",5,"negro",45);
+
+            perro2.mostrarInfo();
+
+            //perro.ladrar();
+            perro2.ladrar();
+            //perro.mostrarInfo();
+
+            Tigre.rugir();
+            tigre2=new Tigre("tigre",2,"Rayado",20);
+
+            //llamar al metodo setter, como una propiedad
+            tigre2.modificarPeso=50;
+            tigre2.mostrarInfo();
+            document.write(tigre2.getPeso);
+        </script>
+    </body>
+</html>
