@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio10</title>
+</head>
+
+<body>
+    Pon un número: <input type="text" id="texto">
+    <input type="button" value="Mostrar si es correcto" onclick="numero(texto.value)">
+    <script>
+        var rnd = Math.round(Math.random() * 100);
+        var atts = 0;
+
+        function numero(num) {
+            atts++;
+            if (rnd == num) {
+                console.log(`Has acertado!, Número de intentos: ${atts}`);
+            } else {
+                console.log("Has fallado");
+                if (num > rnd) {
+                    console.log("Pon un número más bajo");
+                } else {
+                    console.log("Pon un número más alto");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

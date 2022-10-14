@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio11Prompt</title>
+</head>
+
+<body>
+    <!--Pon un número: <input type="text" id="texto">-->
+    <input type="button" id="boton" value="Jugar" onclick="juego()">
+    <script>
+        var rnd = 0;
+        var atts = 0;
+        var mayor = 0;
+        var menor = 0;
+        var num = 0;
+
+        function restartGame() {
+            atts = 0;
+            mayor = 100;
+            menor = 0;
+            rnd = Math.round(Math.random() * 100);
+        }
+
+        function juego() {
+            restartGame();
+            while (atts < 10) {
+                num = prompt(`Introduce un número entre ${menor} y ${mayor}`);
+                atts++;
+                if (rnd == num) {
+                    alert(`Has ganado!`);
+                    break;
+                } else {
+                    alert("Has fallado!");
+                    if (num > rnd) {
+                        if (mayor > num) {
+                            mayor = num;
+                        }
+                    } else {
+                        menor = num;
+                    }
+                }
+                if (atts == 10) {
+                    alert(`Has perdido!`);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

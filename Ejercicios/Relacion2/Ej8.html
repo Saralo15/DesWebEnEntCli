@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+           var cad = prompt("Introduce una cadena", "");
+            document.write(`${cad}<br>`);
+
+            palindromo(cad);
+
+            function palindromo(){
+
+                //Pasar a minusculas la cadena
+                cad = cad.toLowerCase();
+
+                //Convertir la cadena en un array
+                var array = cad.split("");
+
+                //Eliminar los espacion en blanco
+                var sinEspacios = "";
+                for(i in array){
+                    if(array[i] != " "){
+                        sinEspacios += array[i];
+                    }
+                }
+
+                var letras = sinEspacios.split("");
+                var letrasReves = sinEspacios.split("").reverse();
+
+                var iguales = true;
+                for(i in letras){
+                    if(letras[i] == letrasReves[i]){
+                        //Es palíndromo
+                    }
+                    else{
+                        //Alguna letra es distinta, no es palíndromo
+                        iguales = false;
+                    }
+                }
+
+                if(iguales){
+                    document.write("La cadena es un palindromo");
+                }
+                else{
+                    document.write("La cadena no es un palindromo");
+
+                }
+
+                return cad;
+
+            }
+ 
+        </script>
+    </body>
+</html>

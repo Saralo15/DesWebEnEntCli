@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <p>Introduce un número entre 2 y 9</p>
+        <!--El id tiene que ser el mismo nombre que la var-->
+        <input type="text" id="num">
+        <input type="button" value="mostrar texto" onclick="tablaMultiplicar(num.value)">
+        <script>
+            function tablaMultiplicar(num){
+                if(num >= 2 && num <= 9){
+                    for(let i=1; i <=10; i++){
+                        resultado = num * i;
+                        document.write(`${num} * ${i} = ${resultado}<br>`);
+                    }
+                }else{
+                    document.write("Numero incorrecto");
+                }
+            }
+        </script>
+    </body>
+</html>

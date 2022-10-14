@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <input type="button" value="Abrir ventana" onclick="Abrir()">
+        <input type="button" value="Cerrar ventana" onclick="Cerrar()">
+
+        <script>
+            var ventana;
+
+            function Abrir(){
+                ventana = window.open("https://www.google.com/", "Nueva ventana", "");
+            }
+
+            function Cerrar(){
+                ventana.close();
+            }
+        </script>
+    </body>
+</html>

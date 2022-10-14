@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio11</title>
+</head>
+
+<body>
+    Pon un número: <input type="text" id="texto">
+    <input type="button" id="boton" value="Mostrar si es correcto" onclick="numero(texto.value)">
+    <script>
+        var rnd = Math.round(Math.random() * 100);
+        var atts = 0;
+        var mayor = 100;
+        var menor = 0;
+
+        function numero(num) {
+            atts++;
+            if (rnd == num) {
+                console.log(`Has acertado!, Número de intentos: ${atts}`);
+            } else {
+                console.log("Has fallado");
+                if (num > rnd) {
+                    if (mayor > num) {
+                        mayor = num;
+                    }
+                    console.log(`Pon un número entre ${menor} y ${mayor}`);
+                } else {
+                    menor = num;
+                    console.log(`Pon un número entre ${menor} y ${mayor}`);
+                }
+                if (atts == 10) {
+                    console.log("Has perdido!");
+                    texto.disabled = true;
+                    texto.value = "¡Has perdido!";
+                    boton.disabled = true;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

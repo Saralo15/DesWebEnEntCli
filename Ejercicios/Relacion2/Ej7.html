@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+        
+        var cad = prompt("Introduce una cadena", "");
+        document.write(`${cad}<br>`);
+
+        caracteres(cad);
+
+            function caracteres(){
+
+                if(cad == cad.toUpperCase()){
+                    document.write("Esta cadena está formada solo por mayúsculas");
+                }
+
+                else if(cad == cad.toLowerCase()){
+                    document.write("Esta cadena está formada solo por minúsulas");
+                }
+
+                else{
+                    document.write("Esta cadena está formada por mayúsulas y minúsculas");
+                }
+                
+            }
+        </script>
+    </body>
+</html>

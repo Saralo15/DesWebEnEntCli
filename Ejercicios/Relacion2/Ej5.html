@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            //a
+            //let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+            //var num = parseInt(prompt("Introduce 8 números para dni: ", ""));
+            //for(i=0; i<=letras.length; i++){
+                //if(num % 23 == i){
+                    //document.write(`${num} ${letras[i]}`);
+                //}
+            //}
+
+            //b
+            let letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+            var dni = prompt("Introduce 8 números y una letra para dni: ", "");
+
+            for(i=0; i<=letras.length; i++){
+                if(dni.substring(8) == letras[i]){
+                    document.write("El dni es correcto");
+                }else{
+                    document.write("El dni no es correcto");
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -7,12 +7,20 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <input type="text" id="texto">
-        <input type="button" value="mostrar texto" onclick="mostrarTexto()">
         <script>
-            function mostrarTexto(){
-                alert(texto.value);
+            let once = [];
+            let i = 0;
+            let sum = 0;
+
+            for(i=0; i<=3000; i++){
+                once[i] = i*11;
+                suma = once[i];
+                
             }
+            
+            document.write(`${once}`);
+            document.write(`${sum}`);
+            
         </script>
     </body>
 </html>
