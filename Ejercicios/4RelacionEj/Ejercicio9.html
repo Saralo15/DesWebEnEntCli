@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+
+            function ascendente(array){
+                //copia array
+                let asc = [...array];
+                //para que pille los numeros y no ordenarlos alfabeticamente
+                asc.sort(function(a,b){return a-b})
+                return asc;
+            }
+
+            function descendente(array){
+                //copia array
+                let desc = [...array];
+                //para que pille los numeros y no ordenarlos alfabeticamente
+                desc.sort(function(a,b){return b-a})
+                return desc;
+            }
+
+            console.log([5,8,4,2,1]);
+            console.log(ascendente([5,8,4,2,1]));
+            console.log(descendente([5,8,4,2,1]));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            .cambiarColor{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Cambiar todos debe cambiar el color de todos los párrafos a rojo</p>
+        <p>Cambiar primero debe mostrar en color rojo solo el primer párrafo</p>
+        <p>Cambiar pares debe mostrar en color rojo solo los párrafos pares</p>
+        <p>Cambiar impares debe mostrar en color rojo solo los párrafos impares</p>
+        <p>Añadir al final debe añadir un párrafo después del 2º párrafo</p>
+        <input type="button" value="Cambiar todos" onclick="cambiarTodos()"><br> 
+        <input type="button" value="Cambiar primero" onclick="cambiarPrimero()"><br> 
+        <input type="button" value="Cambiar pares" onclick="cambiarPares()"><br>
+        <input type="button" value="Cambiar impares" onclick="cambiarImpares()"><br> 
+        <input type="button" value="Añadir al final" onclick="añadirAlFinal()"><br>
+        <input type="button" value="Estado Original" onclick="estadOriginal()"><br>
+        <script>
+            function cambiarTodos(){
+                var cambiarColor = document.querySelectorAll("p");
+                cambiarColor.className = "cambiarColor";
+            }
+        </script>
+    </body>
+</html>

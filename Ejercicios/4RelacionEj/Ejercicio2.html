@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            //Includes
+           var cadena = "estoy en el parque porque estoy aburrido";
+           var palabra = "estoy";
+
+           //quitar espacios
+           array=cadena.split(" ");
+
+           //contador
+           var num=0;
+           for(i=0; i < array.length; i++){
+            if(array[i].includes(palabra)){
+                num++;
+            }
+           }
+           console.log(num);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            function capicua(numero){
+                //Pasar a string
+                numero = numero.toString()
+                //Ver si se escribe bien de deerecha a izquierda ,Join para unir
+                return numero.split("").reverse().join("") === numero
+            }
+            console.log(capicua(2992));
+         </script>
+    </body>
+</html>

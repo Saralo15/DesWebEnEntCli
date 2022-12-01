@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            const crearParrafos = () =>{
+                for (let i = 0; i < 5; i++) {
+                    //Crear el contenido del parrafo
+                    let newPar = document.createElement('p');
+                    newPar.innerText = i + Math.floor(Math.random()*100);
+                    //Para meterlo en el body
+                    document.body.appendChild(newPar);
+                }
+                //crear el boton
+                let button = document.createElement('input');
+                button.setAttribute('type', 'button');
+                //Al pulsar el boton que haga lo que dice la function
+                button.setAttribute('onclick', 'ordenarPar()');
+                button.setAttribute('value', 'Invertir');
+                document.body.appendChild(button);
+            }
+            crearParrafos();
+
+            function ordenarPar(){
+                //Que seleccione todos los parrafos
+                const contenido = document.querySelectorAll('p');
+                const arrayParr = [];
+                //Añadir valor al contenido con el indice
+                contenido.forEach(function(el,index){
+                    arrayParr[index] = el.innerText;
+                });
+                //Invertir el array del parrafo
+                arrayParr.reverse();
+                //Reescribir el array del parrafo para invertirlo y que aparezca en orden como al principio
+                contenido.forEach(function(el,index){
+                    el.innerText = arrayParr[index];
+                });
+            }
+        </script>
+    </body>
+</html>

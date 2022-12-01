@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            function contarVyC(frase){
+                let vocales = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+                let consonantes = ['b','c','d','f','g','h','j','k','l','m','n','ñ','p','q','r','s','t','v','w','y','z'
+                                ,'B','C','D','F','G','H','J','K','L','M','N','Ñ','P','Q','R','S','T','V','W','Y','Z'];
+                let arrayFrase = frase.split("");
+                
+                let contadorVocales = 0;
+                let contadorConsonantes = 0;
+
+                for(let i = 0; i < arrayFrase.length; ++i){
+                    //-1 es como false
+                    if(vocales.indexOf(arrayFrase[i]) != -1){
+                        ++contadorVocales;
+                    }
+                    if(consonantes.indexOf(arrayFrase[i]) != -1){
+                        ++contadorConsonantes;
+                    }
+
+                }
+                return console.log("Vocales: ",contadorVocales, ", Consonantes: ",contadorConsonantes);
+            }
+
+            console.log('Hola Mundo');
+            console.log(contarVyC('Hola Mundo'));
+            
+
+
+        </script>
+    </body>
+</html>

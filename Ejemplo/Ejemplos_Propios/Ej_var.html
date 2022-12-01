@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            var hola = "Hola Mundo";
+            let hello = "Hello World";
+            console.log(hola);
+            console.log(hello);
+
+            //Ambito de bloque
+            let musica2 = "Rock";
+            console.log("Variable Musica antes del bloque", musica2);
+            //Esto es un bloque
+            {
+                //Podemos utilizar el mismo nombre ya que es una var diferente
+                //están en diferente bloque
+                let musica2 ="Pop";
+                console.log("Variable Musica dentro del Bloque", musica2);
+            } 
+            console.log("Variable Musica después del Bloque", musica2);
+            
+        </script>
+    </body>
+</html>
