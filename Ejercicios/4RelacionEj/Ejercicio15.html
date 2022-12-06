@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            class Pelicula {
+                constructor({id, titulo, director, anioEstreno, paisOrigen, genero, calificacion}){
+                    this.id = id;
+                    this.titulo = titulo;
+                    this.director = director;
+                    this.anioEstreno = anioEstreno;
+                    this.paisOrigen = paisOrigen;
+                    this.genero = genero;
+                    this.calificacion = calificacion;
+
+                    //ejecutar metodo al instanciar
+                    this.validarId(id);
+
+                }
+
+                //Parar saber si lo que escriben es texto o no
+                validarTexto(propiedad, elemento){
+                    if(typeof elemento !== "string") return console.error(`${propiedad} ${elemento} ingresado, No es una cadena de texto`);
+                    return true;
+                }
+
+                validarLongitud(propiedad, elemento, longitud){
+                    if(elemento.lenght>longitud) return console.error(`${propiedad} ${elemento} es demasiado largo (${longitud})`);
+                    return true;
+                }
+
+                //validaciones
+                validarId(id){
+                    //id 9 caracteres, primeros 2 letras y 7 restantes numeros
+                    if(this.validarTexto("id", id)){
+                        //cuando no cumpla la expresion retorna el console.error
+                        //^ no debe haber nada antes
+                        //$ no debe haber nada despues
+                        //solo estara caracteres de la a-z solo dos caracteres
+                        //ademas de numeros 0-9 solo 7 numeros
+                        if(!(/^[a-z]{2}[0-9]{7}$/.test(id))){
+                            return console.error(`${id} No es válido`);
+                        }
+                    }
+                }
+
+                validarTitulo(titulo){
+                    //Solo se haría si validarLongitud y validarTexto da true
+                    if(this.validarTexto("Titulo", titulo))
+                        this.validarLongitud("Titulo", titulo, 100);
+                    
+                }
+
+                validarDirector(director){
+                    //Solo se haría si validarLongitud y validarTexto da true
+                    if(this.validarTexto("Director", director))
+                        this.validarLongitud("Director", director, 50);
+                    
+                }
+                
+            }
+
+            const pelicula = new Pelicula({
+                id:"tt1234567",
+                titulo:1234, 
+                director: true
+            });
+        </script>
+    </body>
+</html>

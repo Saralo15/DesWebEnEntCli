@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            //Funcion Declarada
+            function estoEsUnaFuncion(){
+                console.log("Uno");
+                console.log("Dos");
+                console.log("Tres");
+            }
+
+            funcionDeclarada();
+
+            function funcionDeclarada(){
+                console.log(`Esto es una funcion declarada, puede
+                invocarse en cualquier parte de nuestro código,
+                incluso antes de que la funcion sea declarada`);
+            }
+
+            funcionDeclarada();
+
+            //Invocacion de funcion
+            //estoEsUnaFuncion();
+
+            /*function unaFuncionDevuelveValor(){
+                console.log("Cuatro");
+                return 19;
+                console.log("Cinco");
+                console.log("Seis");
+
+                return "La función ha retornado una cadena de texto";
+            }*/
+
+            /*Le asignamos a una variable porque si la ponemos
+              dentro de un console.log dará problemas al tener dentro
+              de esta otros console.log*/
+            //let valorDeFuncion = unaFuncionDevuelveValor();
+
+            //console.log(valorDeFuncion);
+
+            //Recibir valores
+           /* function saludar(nombre, edad){
+                console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
+            }
+
+            saludar("Sara", 20);
+
+            function saludar(nombre = "Desconocido", edad = 0){
+                console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
+            }
+
+            saludar();*/
+
+            //Funcion Expresada
+
+            //Funcion anonima
+           /* const funcionExpresada = function(){
+                console.log(`Esto es una funcion expresada, es 
+                decir una funcoon que se le ha asignado como valor 
+                a una variable, si invocamos esta función antes de 
+                su definición JS nos dirá...`)
+            }
+
+            funcionExpresada();*/
+            
+        </script>
+    </body>
+</html>

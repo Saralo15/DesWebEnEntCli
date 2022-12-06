@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            let a = new String("Hola");
+            //console.log(a);
+
+            /*Importante const en objetos
+            Al ser const evitamos que un nuevo objetos cambie la 
+            referencia de este*/
+            const b = {}
+            console.log(b);
+
+            const sara = {
+                nombre: "Sara",
+                edad: "20",
+                pasatiempos: ["Escribir","Dibujar","Escuchar musica"],
+                pelirroja: false,
+                //Un objeto puede tener objetos dentro
+                contacto:{
+                    email:"sloplun15@iesmarquesdecomares.org",
+                    movil:"123456789"
+                },
+                //Tambien pueden tener function
+                saludar: function(){
+                    console.log("Hola")
+                },
+                decirMiNombre:function(){
+                    console.log(`Hola me llamo ${this.nombre}`)
+                }
+            }
+
+            console.log(sara);
+            //Acceder a una propiedad dentro de un objeto
+            console.log(sara["nombre"]);
+            console.log(sara.nombre);
+            console.log(sara.pasatiempos[1]);
+            console.log(sara.contacto.movil);
+            //Ejecutar function de objeto
+            sara.decirMiNombre();
+
+            //Metodo que permite listar las llaves del objeto
+            console.log(Object.keys(sara));
+
+            //Metodo que permite listar los valores del objeto
+            console.log(Object.values(sara));
+
+            //Metodo para saber si un objeto tiene una propiedad
+            console.log(sara.hasOwnProperty("nombre"));
+        </script>
+    </body>
+</html>

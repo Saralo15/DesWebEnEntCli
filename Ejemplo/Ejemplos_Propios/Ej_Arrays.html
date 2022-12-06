@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            //Array vacio
+            const a = [];
+            console.log(a);
+
+            //Array con elementos
+            const b = [1, true, "Hola", ["A","B","C"]];
+            console.log(b);
+
+            //Acceder a un elemento de un array
+            console.log(b[2]);
+
+            //Acceder a la letra C del array dentro del array b
+            console.log(b[3][2]);
+
+            //Otra forma de crear array
+            const c = Array.of("X","Y","Z",9,8,7);
+            console.log(c);
+
+            /*Inicializar un array y asignarle a sus posiciones
+            el mismo valor*/
+            const d = Array(10).fill(false);
+            console.log(d);
+
+            /*Añadir un valor nuevo a un array*/
+            const colores = ["Rojo","Verde","Azul"];
+            console.log(colores);
+
+            colores.push("Negro");
+            console.log(colores);
+
+            /*Quitar el ultimo elemento del array*/
+            colores.pop();
+            console.log(colores);
+
+            /*Ejecutar funcion por los elementos de un array
+            Normalmente se realiza con function arrow
+            el seria el contenido del array y index el indice del array*/
+            colores.forEach(function(el, index){
+                console.log(`<li id="${index}">${el}</li>`)
+            });
+        </script>
+    </body>
+</html>

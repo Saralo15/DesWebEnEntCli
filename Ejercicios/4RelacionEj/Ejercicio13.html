@@ -7,19 +7,38 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, modi! Provident, dolores amet. Adipisci, 
-            eligendi minima. Similique corporis, quo sunt quia fuga delectus, officia earum, consequatur debitis ad expedita iste.
-        </p>
         <script>
-            let parrafo = document.createElement("p");
-            let textoparrafo = document.createTextNode("Hola");
-            parrafo.appendChild(textoparrafo);
-            parrafo.parentNode.removeChild(parrafo);
+            function crear(){
+                let p = document.getElementById('primero');
+                let newElement = document.createElement('p');
+                newElement.textContent = 'Hola';
 
+                p.insertBefore(newElement, p.children[1]);
+                //añadirle una ip a este nuevo parrafo
+                newElement.setAttribute('id', 'segundo');
+            }
+
+            function modificar(){
+                //id siempre entre comillas
+                let p = document.getElementById('segundo');
+                //obtener el texto del p
+                p.textContent = "Como estas";
+            }
+
+            function eliminar(){
+                document.getElementById('segundo').remove();
+            }
             
         </script>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quas magni soluta error tempora suscipit vero labore fugiat ipsam amet illum quis consequatur, 
+        <p id="primero">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quas magni soluta error tempora suscipit vero labore fugiat ipsam amet illum quis consequatur, 
             laboriosam fugit, vel dolorum? Officia, ea optio?
         </p>
+        <p id="tercero">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis quas magni soluta error tempora suscipit vero labore fugiat ipsam amet illum quis consequatur, 
+            laboriosam fugit, vel dolorum? Officia, ea optio?
+        </p> 
+
+        <button onclick=" crear()">Crear</button>
+        <button onclick=" modificar()">Modificar</button>
+        <button onclick=" eliminar()">Eliminar</button>
     </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            let contador = 0;
+
+            //while
+            /*while(contador < 10){
+                console.log("While: "+ contador);
+                contador ++;
+            }*/
+
+            //do...while
+            /*do{
+                console.log("Do while: " + contador);
+                contador ++;
+            }while(contador < 10);*/
+
+            //for
+            /*for(inicializacion variable; condicion;
+            decremento o incremento){
+                sentencias que ejecuta el for
+            }*/
+            /*for (let i = 0; i < 10; i++) {
+                console.log("for: " + i);
+                
+            }*/
+
+            //For en objetos
+            const sara = {
+                nombre:"sara",
+                apellido:"lopera",
+                edad:"20"
+            }
+
+             /*for (const propiedad in sara) {
+               console.log(`Key:${propiedad}, Value:${sara[propiedad]}`);
+                
+            }*/
+
+            //for in
+            /*for (const propiedad in sara) {
+               console.log(propiedad);
+                
+            }*/
+
+
+            let numeros = [10,20,30,40,50,60];
+
+            //for of
+            for (const elemento of numeros) {
+               console.log(elemento);
+            }
+
+            let cadena = "Hola Mundo";
+
+            for (const elemento of cadena) {
+                console.log(elemento);
+            }
+
+        </script>
+    </body>
+</html>

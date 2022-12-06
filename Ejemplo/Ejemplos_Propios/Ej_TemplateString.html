@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+
+            let nombre = "Sara";
+            let apellido = "Lopera";
+            
+            //Concatenacion
+            let saludo = "Hola mi nombre es " + nombre + " " + apellido;
+            console.log(saludo);
+
+            //Interpolacion de variables
+            //Template String
+            let saludo2 = `Hola mi nombre es ${nombre} ${apellido}`;
+            console.log(saludo2);
+
+            let ul = `
+            <ul> 
+                <li> Primavera </li>
+                <li> Verano </li>
+                <li> Otoño </li>
+                <li> Invierno </li>
+            </ul>`;
+
+                console.log(ul);
+
+
+
+            let ul2 = "ul";
+            ul2 += "<li> Primavera </li>";
+            ul2 += "</ul>";
+
+            console.log(ul2);
+        </script>
+    </body>
+</html>

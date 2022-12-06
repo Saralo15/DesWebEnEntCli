@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            //try catch
+
+            /*try{
+                console.log("En el try se agrega el codigo a evaluar");
+            }catch(error){
+                console.log("Catch, captura cualquier error surgido en el try");
+            }finally{
+                console.log("Este se ejecutara siempre al final de un bloque try catch");
+            }
+
+            try{
+                let numero = "hola";
+
+                if(isNaN(numero)){
+                    throw new Error("El carcter introducido no es un numero");
+                }
+                console.log(numero * numero);
+            }catch(error){
+                console.log(`Se produjo el siguiente error:${error}`);
+            }*/
+
+
+            //----------------------------------------------------------------------------------------------
+
+            //break y continue(no se pueden utilizar en metodos de array)
+           /* const numeros =  [1,2,3,4,5,6,7,8,9,0];
+
+            for (let i = 0; i < numeros.length; i++) {
+                if(i === 5){
+                    break;
+                }
+                //recorrer elementos array
+                console.log(numeros[i]);
+                
+            }
+
+            for (let i = 0; i < numeros.length; i++) {
+                if(i === 5){
+                    continue;
+                }
+                //recorrer elementos array
+                console.log(numeros[i]);
+                
+            }*/
+
+            //----------------------------------------------------------------------------------------------
+
+            //Destructuracion
+            /*const numeros = [1,2,3];
+
+            //Sin destructuracion
+            let uno = numeros[0],
+                dos = numeros[1],
+                tres = numeros[2];
+
+            console.log(uno,dos,tres);*/
+
+            //Con destructuracion
+            //creamos un array y le agregamos el array numeros creado antes
+            /*Guardamos las posiciones de los arrays numeros en las propiedades del
+            nuevo array*/
+           /* const[one, two, three] = numeros;
+            console.log(one, two, three);
+
+            const persona = {
+                nombre: "sara",
+                apellido: "lopera",
+                edad: 20
+            };
+
+            let{nombre, apellido, edad} = persona;
+            console.log(nombre, apellido, edad);*/
+
+            //----------------------------------------------------------------------------------------------
+
+            //Objetos literales
+            /*let nombre = "sara",
+                edad = 20;
+
+                const persona = {
+                    nombre: nombre,
+                    edad: edad,
+                    comunicacion: function(){
+                        console.log("Hola")
+                    }
+                }
+
+                console.log(persona);
+                persona.comunicacion();
+
+                const person = {
+                    nombre,
+                    edad,
+                    comunicacion(){
+                        console.log("Holisss");
+                    }
+                }
+                console.log(person);
+                person.comunicacion();*/
+
+            //----------------------------------------------------------------------------------------------
+
+            //rest y operador spread
+            //rest
+            //c puede ser o no infinito
+                /*function sumar(a,b,...c){
+                    let result = a+b;
+
+                    //se va a ejecutar por cada elemento que venga dentro de c
+                    c.forEach(function(n){
+                        //al numero se lo sumamos a lo que vale el resultado
+                        //suman los numeros que reciben
+                        result += n
+                    });
+
+                    return result;
+                }
+                console.log(sumar(1,2));
+                console.log(sumar(1,2,3));
+                console.log(sumar(1,2,3,4));
+                console.log(sumar(1,2,3,4,5));
+                console.log(sumar(1,2,3,4,5,6));*/
+
+
+
+            //Spread operator
+                /*const arr1 = [1,2,3,4,5],
+                    arr2 = [6,7,8,9,0];
+
+                console.log(arr1,arr2);
+
+                const arr3 = [...arr1, ...arr2];
+                console.log(arr3);*/
+
+            //----------------------------------------------------------------------------------------------
+
+            //Funtion Arrow
+            //Funtion expresada
+                /*const saludar = function(){
+                    console.log("Hola");
+                } 
+
+                saludar();*/
+
+            //Arrow
+            /*Si tiene solo una linea de codigo se pueden eliminar
+            las llaves*/
+                /*const saludo2 = () => 
+                    console.log("Hola");
+                
+
+                saludo2();*/
+
+            //recibir parametros con arrow
+                /*const saludo2 = (nombre) => 
+                    console.log(`Hola ${nombre}`);
+                
+
+                saludo2("Sara");*/
+                /*const saludo2 = nombre => 
+                    console.log(`Hola ${nombre}`);
+                
+                saludo2("Sara");*/
+
+            //return implicito en arrow
+                /*const sumar = (a,b) => 
+                        a + b;
+                    
+
+                console.log(sumar(8,9));*/
+
+            //varias lineas de codigo
+                /*const funcionDeVariasLineas = () => {
+                    console.log("Uno");
+                    console.log("Dos");
+                    console.log("Tres");
+                }
+
+                funcionDeVariasLineas();*/
+
+            //This en arrow
+            //this ya no es el objeto, es el objeto Window
+                /*const perro ={
+                    nombre:"Luna",
+                    ladrar:() => {
+                        console.log(this)
+                    }
+                }
+
+                perro.ladrar();*/
+
+            //----------------------------------------------------------------------------------------------
+
+            //Prototipos
+            
+        </script>
+    </body>
+</html>
