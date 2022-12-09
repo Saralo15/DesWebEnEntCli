@@ -4,7 +4,7 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        
     </head>
     <body>
         <script>
@@ -20,56 +20,202 @@
 
                     //ejecutar metodo al instanciar
                     this.validarId(id);
+                    this.validarDirector(director);
+                    this.validarTitulo(titulo);
+                    this.validarAnio(anioEstreno);
+                    this.validarPais(paisOrigen);
+                    this.validarListaGeneros(genero);
+                    this.validarCalificacion(calificacion);
 
                 }
 
-                //Parar saber si lo que escriben es texto o no
+                //atributo estatico de lista generos
+                static get listGeneros(){
+                    return ["Action","Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime", 
+                    "Documentary" ,"Drama", "Family", "Fantasy", "FilmNoir","Game-Show", "History", "Horror", 
+                    "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi","Short", "Sport", 
+                    "Talk-Show", "Thriller", "War", "Western"];
+                }
+
+                //metodo estatico
+                //template string, al tener el atributo statico no necesitas instanciar, solo llamas a la clase y al atributo, con un separador
+                static generosAceptados(){
+                    return console.info(`Los géneros aceptados son: ${Pelicula.listGeneros.join(",")}`);
+                }
+
+                //Validaciones Generales
+                //Validar que sea cadena de texto
                 validarTexto(propiedad, elemento){
-                    if(typeof elemento !== "string") return console.error(`${propiedad} ${elemento} ingresado, No es una cadena de texto`);
+                    if (!elemento) return console.warn(`${propiedad} "${elemento}" está vacío`);
+
+                    if(typeof elemento !== "string") return console.error(`${propiedad} "${elemento}" ingresado, No es una cadena de texto`);
+
                     return true;
                 }
 
+                //Validar la longitud
                 validarLongitud(propiedad, elemento, longitud){
-                    if(elemento.lenght>longitud) return console.error(`${propiedad} ${elemento} es demasiado largo (${longitud})`);
+                    if(elemento.length > longitud) return console.error(`${propiedad} "${elemento}" es demasiado largo ${longitud}`);
+                    
                     return true;
                 }
 
-                //validaciones
+                //Validar que sea un número
+                validarNumero(propiedad, elemento){
+                    if (!elemento) return console.warn(`${propiedad} "${elemento}" está vacío`);
+
+                    if(typeof elemento !== "number") return console.error(`${propiedad} "${elemento}" ingresado, No es un numero`);
+
+                    return true;
+                }
+
+                //Validar que sea un array
+                validarArray(propiedad, elemento){
+                    //si el elemento está vacío decimos que está vacío
+                    if(!elemento) return console.warn(`${propiedad} "${elemento}" está vacío`);
+                    //Si el elemento no es un array, decimos que no es un array
+                    if(!(elemento instanceof Array)) return console.error(`${propiedad} "${elemento}" No es un array`);
+                    //Si el array no trae ningun elemento, decimos que no tiene datos
+                    if(elemento.length === 0) return console.error(`${propiedad} "${elemento}" No tiene datos`);
+                    //Depues de validar,si los elementos de estos arrays no son cadena decimos que no son cadena
+                    for(let cadena of elemento){
+                        if(typeof cadena !== "string") return console.error(`El elemento "${cadena}" No es una cadena de texto`);
+                    }
+
+                    return true;
+                }
+
+
+                //Validaciones Especificas
+                //Validar el id
                 validarId(id){
                     //id 9 caracteres, primeros 2 letras y 7 restantes numeros
-                    if(this.validarTexto("id", id)){
+                    if(this.validarTexto("id", id))
                         //cuando no cumpla la expresion retorna el console.error
                         //^ no debe haber nada antes
                         //$ no debe haber nada despues
                         //solo estara caracteres de la a-z solo dos caracteres
                         //ademas de numeros 0-9 solo 7 numeros
-                        if(!(/^[a-z]{2}[0-9]{7}$/.test(id))){
+                        if(!(/^[a-z]{2}[0-9]{7}$/.test(id)))
                             return console.error(`${id} No es válido`);
-                        }
-                    }
+                        
+                    
                 }
 
+                //Validar el titulo
                 validarTitulo(titulo){
-                    //Solo se haría si validarLongitud y validarTexto da true
+                    //Solo se haría si validarLongitud da true
                     if(this.validarTexto("Titulo", titulo))
                         this.validarLongitud("Titulo", titulo, 100);
                     
                 }
 
+                //Validar el director
                 validarDirector(director){
-                    //Solo se haría si validarLongitud y validarTexto da true
+                    //Solo se haría si validarLongitud da true
                     if(this.validarTexto("Director", director))
                         this.validarLongitud("Director", director, 50);
                     
                 }
+
+                //Validar el año de estreno
+                validarAnio(anioEstreno){
+                    if(this.validarNumero("Año de estreno", anioEstreno))
+                    //^ no debe haber nada antes
+                    //$ no debe haber nada despues
+                    //del 0 al 9, solo cuatro numeros
+                        if(!(/^[0-9]{4}$/.test(anioEstreno)))
+                            return console.error(`Año de estreno ${anioEstreno} No es válido`);
+                }
+
+                //Validar el país de origen
+                validarPais(paisOrigen){
+                    this.validarArray("País de origen",paisOrigen);
+                }
+
+                //Validar lista de géneros
+                validarListaGeneros(genero){
+                    if(this.validarArray("Géneros",genero)){
+                        //Para recorrer el array de los generos introducidos
+                        for(let gender of genero){
+                            //saber si un valor existe dentro del array
+                            //console.log(genero, Pelicula.listGeneros.includes(gender));
+                            //El primero que de falso devolver un error, depues lanzamos los géneros que si estan permitidos
+                            if(!Pelicula.listGeneros.includes(gender)){
+                                console.error(`Género o géneros incorrectos "${genero.join(",")}"`);
+                                Pelicula.generosAceptados();
+                            }
+                        }
+                    }
+                }
+
+                //Validar Calificacion
+                validarCalificacion(calificacion){
+                    if(this.validarNumero("Calificación", calificacion))
+                    //si calificacion es menor a 0 o mayor a 10 entonces mandar un error que diga el rango de la calificion
+                        return(calificacion < 0 || calificacion > 10)
+                        ? console.error("La calificación debe estar entre 0 y 10")
+                         //si calificacion es un numero valido pero con decimales, recortar a una posicion decimal
+                        : this.calificacion = calificacion.toFixed(1);
+                }
+
+                //Ficha tecnica de la película(Si hay más de un paás irán separados por un guión medio
+                //si hay más de un género irán divididos por una coma)
+                fichaTecnicaPelicula(){
+                    console.info(`Ficha Técnica:\nTítulo:"${this.titulo}"\nDirector:"${this.director}"\nAño:"${this.anioEstreno}"\nPaís:"${this.paisOrigen.join("-")}"\nGéneros:"${this.genero.join(",")}"\nCalificación:"${this.calificacion}"\nId:"${this.id}"`)
+                }
                 
             }
 
-            const pelicula = new Pelicula({
+            //Para saber los géneros aceptados
+            //Pelicula.generosAceptados();
+
+            //Validar la clase
+            /*const pelicula = new Pelicula({
                 id:"tt1234567",
-                titulo:1234, 
-                director: true
+                titulo:"Titulo de la pelicula",
+                director:"Director de la pelicula",
+                anioEstreno: 2020,
+                paisOrigen: ["España","Argentina"],
+                genero: ["Comedy", "Family"],
+                calificacion: 7.789
             });
+
+            //Metodos objeto
+            pelicula.fichaTecnicaPelicula();*/
+
+            const Pelis = [
+                {
+                    id:"tt0816692",
+                    titulo:"Interstellar",
+                    director:"Christopher Nolan",
+                    anioEstreno:2014,
+                    paisOrigen:["USA","UK"],
+                    genero:["Adventure","Drama","Sci-Fi"],
+                    calificacion:8.6
+                },
+                {
+                    id:"tt0245429",
+                    titulo:"El viaje de Chihiro",
+                    director:"Hayao Miyazaki",
+                    anioEstreno:2001,
+                    paisOrigen:["JPN"],
+                    genero:["Animation","Adventure","Family"],
+                    calificacion:8.6
+                },
+                {
+                    id:"tt0078748",
+                    titulo:"Alien,el octavo pasajero",
+                    director:"Ridley Scott",
+                    anioEstreno:1979,
+                    paisOrigen:["USA"],
+                    genero:["Horror","Sci-Fi"],
+                    calificacion:8.5
+                }
+            ];
+
+            //Por cada uno de los objetos que tiene este array que genere una instacia de la clase pelicula, para recibir valores
+            Pelis.forEach(el => new Pelicula(el).fichaTecnicaPelicula());
         </script>
     </body>
 </html>

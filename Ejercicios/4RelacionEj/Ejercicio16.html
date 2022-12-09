@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            class Password{
+                constructor({longitud, contrasenia}){
+                    this.longitud = longitud;
+                    this.contrasenia = contrasenia;
+
+                    this.validarLongitud(longitud);
+
+                }
+
+                //Validaciones Genereales
+                //Validar la longitud
+                validarLong(propiedad, elemento, long){
+                    if(elemento.length > long) return console.error(`${propiedad} "${elemento}" es demasiado largo ${long}`);
+                    
+                    return true;
+                }
+
+                //Validacion especificas
+                //Validar la longitud
+                validarLongitud(longitud){
+                    //Solo se haría si validarLongitud da true
+                    this.validarLongitud(longitud, 8);
+                    
+                }
+                
+            }
+
+            //Validar clase
+            const clave = new Password({
+                longitud:"12"
+            })
+        </script>
+    </body>
+</html>
