@@ -4,41 +4,93 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+
     </head>
     <body>
         <script>
-            class Password{
-                constructor({longitud, contrasenia}){
-                    this.longitud = longitud;
-                    this.contrasenia = contrasenia;
-
-                    this.validarLongitud(longitud);
+             class Password{
+                constructor(longitud=8){
+                    this.longitud=longitud;
+                    this.contrasenia= generateRandomString(longitud);
 
                 }
 
-                //Validaciones Genereales
-                //Validar la longitud
-                validarLong(propiedad, elemento, long){
-                    if(elemento.length > long) return console.error(`${propiedad} "${elemento}" es demasiado largo ${long}`);
+
+                // Getters & set
+                get getContrasenia(){
+                    return this.contrasenia;
+                }
+
+                get getLontitud(){
+                    return this.longitud;
+                }
+
+                set setLongitud(longitud){
+                    this.longitud=longitud;
+                }
+
+                 //Validar Contraseña
+                validCONTRA(){
+                    let contrasenia=this.contrasenia;
+                    var num=0, minus=0, mayus=0;
+                    var cierto = false;
                     
-                    return true;
+                        for (let i = 0; i < contrasenia.length; i++) {
+                            if(/([A-Z])/.test(contrasenia[i])){
+                                mayus++;
+                            }
+                            if(/([a-z])/.test(contrasenia[i])){
+                                minus++;
+                            }
+                            if(/\d/.test(contrasenia[i])){
+                                num++;
+                            }    
+                        }
+                        if(mayus >= 2 && minus >= 1 && num >= 5){
+                            cierto = true;
+                        }
+                        return cierto;
                 }
 
-                //Validacion especificas
-                //Validar la longitud
-                validarLongitud(longitud){
-                    //Solo se haría si validarLongitud da true
-                    this.validarLongitud(longitud, 8);
-                    
+                //Encriptar Contraseña
+                encripPass(){
+                    var cadena = '';
+                    let contrasenia=this.contrasenia;
+                    for (let i = 0; i < contrasenia.length; i++) {
+                        if(/([A-Za-z])/.test(contrasenia[i])){
+                            cadena+=contrasenia.charCodeAt(i)+97; // el mas igual evita que lo sobreescriba
+
+                        }
+
+                        if(/\d/.test(contrasenia[i])){
+                            cadena+=contrasenia.charCodeAt(i)%5;
+                        }  
+                    }
+                    return cadena;
                 }
-                
+
             }
 
-            //Validar clase
-            const clave = new Password({
-                longitud:"12"
-            })
+
+            //Generar un string al azar
+            const  generateRandomString = (num) => {
+                const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                let result1= ' ';
+                const charactersLength = characters.length;
+                for ( let i = 0; i < num; i++ ) {
+                    result1 += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+
+                return result1;
+            }
+
+        
+
+            
+            const contra = new Password(8);
+            console.log(contra.validCONTRA());
+            console.log(contra.getContrasenia);
+            console.log(contra.encripPass());
         </script>
     </body>
 </html>

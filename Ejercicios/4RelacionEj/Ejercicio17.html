@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>BIENVENIDO AL SISTEMA COMARES</h1><br>
+        <form>
+            <legend>Introduzca su usuario y clave...</legend>
+            <!--Validar usuario: Empieza obligatoriamente por una letra mayuscula, luego letras de la a-z mayus o minus, guion bajo y digitos-->
+            Usuario: <input id="user" type="text" name="usuario" pattern="^[A-Z]{1}[A-Za-z_\d]*" required><br>
+            <!--Validar clave: Empieza y termine obligatoriamente por digitos min 4 digitos max 8 digitos-->
+            Clave: <input id="pass" type="text" name="pw" pattern="^\d{4,8}$" required><br>
+            <input type="submit" name="enviar" value="Enviar">
+            <input type="submit" name="limpiar" value="Limpiar" onclick="botonLimpiar()">
+        </form>
+        <script>
+            
+            //Borrar contenido imput al pulsar boton limpiar
+            function botonLimpiar(){
+               let a = document.querySelectorAll('input[required]');
+                a.forEach(el => {
+                    el.value='';
+                });
+            }
+
+
+            //Si el usuario introducido es correcto que enseñe una alerta con bienvenido, sino que enseñe una alerta con incorrecto
+            document.addEventListener('submit',(e)=>{
+                //Para que se repita varias veces el evento del boton enviar
+                e.preventDefault();
+                let usu = document.querySelector('#user').value; //
+                let cont = document.getElementById('pass').value;
+
+                if(usu === "Admin" && cont === "1234"){
+                    alert("Bienvenidos al sistema");
+                }else{
+                    alert("Usuario y/o contraseña incorrecta");
+                }
+
+
+            });
+
+            
+        </script>
+    </body>
+</html>
