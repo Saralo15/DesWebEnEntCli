@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Ejemplo de callbackHell</h1> 
+
+   <script>
+    /* MECANISMO ASÍNCRONO CON CALLBACK
+    function calcularCuadrado(numero,funcionCallback){
+        setTimeout(()=>{
+            funcionCallback(numero,numero*numero);
+        },
+        2000);
+    }
+
+    calcularCuadrado(0,(numero,resultado)=>{ 
+        console.log("inicio de callbak");
+        console.log(`Callback: ${numero},${resultado}`);
+        calcularCuadrado(1,(numero,resultado)=>{
+            console.log(`Callback: ${numero},${resultado}`);
+            calcularCuadrado(2,(numero,resultado)=>{
+                console.log(`Callback: ${numero},${resultado}`);
+                calcularCuadrado(3,(numero,resultado)=>{
+                    console.log(`Callback: ${numero},${resultado}`);
+                    calcularCuadrado(4,(numero,resultado)=>{
+                        console.log(`Callback: ${numero},${resultado}`);
+                        calcularCuadrado(5,(numero,resultado)=>{
+                            console.log(`Callback: ${numero},${resultado}`);
+                            calcularCuadrado(6,(numero,resultado)=>{
+                                console.log(`Callback: ${numero},${resultado}`);
+                                calcularCuadrado(7,(numero,resultado)=>{
+                                    console.log(`Callback: ${numero},${resultado}`);
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+        });
+*/
+/* MECANISMO ASÍNCRONO CON PROMESAS
+ function calcularCuadrado(numero){
+          
+        return new Promise((resolve,reject)=>{
+        //si no es un número rechaza la promesa
+        if (typeof numero !== "number")
+            {
+            reject("No has introducido un número");
+            }
+        else
+            {
+            setTimeout(()=>{
+            //en el resolve vamos a devolver un objeto con dos atributos
+            resolve({
+                    valor:numero,
+                    resultado:numero*numero
+                    });
+                },500);
+            }   
+            });
+            }
+    
+
+    calcularCuadrado(0).then(objeto=>{
+            console.log('Inicio promesa');
+            console.log(objeto);
+            return calcularCuadrado(1);
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado(2);
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado(3);
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado(4);
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado("5");
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado(6);
+        })
+        .then ((objeto)=>{
+            console.log(objeto);
+            return calcularCuadrado(7);
+        })
+        .catch(err=>{console.error(`El error es ${err}`)});
+        */
+
+/*MECANISMO ASÍNCRONO CON FUNCIONES ASÍNCRONAS
+
+//función que me devuelve una promesa para tratar asincronía
+function calcularCuadrado(numero){
+          
+        return new Promise((resolve,reject)=>{
+        //si no es un número rechaza la promesa
+        if (typeof numero !== "number")
+            {
+            reject("Error, No has introducido un número");
+            }
+        else
+            {
+            setTimeout(()=>{
+            //en el resolve vamos a devolver un objeto con dos atributos
+            resolve({
+                    valor:numero,
+                    resultado:numero*numero
+                    });
+                },2000);
+            }   
+            });
+            }
+
+// función asíncrona como complemento a la promesa que hace más legible el código
+async function funcionAsincrona(){
+    try{
+        console.log ("Inicio de función asíncrona");
+        //creamos instrucciones asíncronas para cada llamada a la función que devuelve la promesa
+        let objeto= await calcularCuadrado(0);
+        console.log (objeto);
+
+        objeto= await calcularCuadrado(1);
+        console.log (objeto);
+
+        objeto=await calcularCuadrado(2);
+        console.log (objeto);
+
+        objeto=await calcularCuadrado(3);
+        console.log (objeto);
+
+        objeto=await calcularCuadrado(4);
+        console.log (objeto);
+
+        objeto=await calcularCuadrado("5");
+        console.log (objeto);
+
+        objeto= await calcularCuadrado(6);
+        console.log (objeto);
+
+        objeto= await calcularCuadrado(7);
+        console.log (objeto);
+
+        console.log ('Fin funciones asíncronas');
+    }
+    catch(err){
+        console.error(`El catch devuelve el error ${err}`);
+    }
+}
+
+funcionAsincrona();
+
+*/
+
+
+  
+  funcionAsincrona();
+   </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            const y=[..."1111111111"];
+            let arr=y.map(x => y.map(el => Math.floor(Math.random() * 100)));
+            console.log("Array original");
+            console.table(arr);
+
+            /*for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    if(i==j){
+                        let diagonalPrinciapal[i] = arr[i][j];
+                    }
+                    if(i+j == arr.length-1){
+                        let diagonalSecundaria[i] = arr[i][j];
+                    }
+                    
+                }
+                
+            }
+
+            console.log('Diagonal Principal: ',diagonalPrinciapal);
+            console.log('Diagonal Secundaria: ',diagonalSecundaria);*/
+        </script>
+    </body>
+</html>

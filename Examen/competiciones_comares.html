@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+    <title>COMPETICIONES COMARES</title>
+    <style>
+    input[type=number] {
+        width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Competiciones deportivas IES Marqués de Comares</h1>
+    <hr>
+    <form name="identificacion" action="#" method="get">
+        <h2>Identificación:</h2><br>
+                    <label for="Usuario">Usuario</label>
+                    <input type="text" id="usuario" required><br>
+                    <label for="Password" >ContraseÃ±a:</label>
+                    <input type="password" id="password" pattern="^/[A-Z]{1}_\d{3}[A-Z]{1}$*" required><br>
+                    <p></p>
+     </form>
+    <table> 
+        <tr>
+          <h2>Resultado competiciones deportivas</h2></tr>
+        <tr>
+        <form name="formulario1" action="#" method="get">
+            Tipo competición: 
+            <select id="competicion" name="tipoCompetición" required>
+                    <option id="1" value="futbol">Fútbol</option>
+                    <option id="2" value="baloncesto">Baloncesto</option>
+                    <option id="3" value="padel">Pádel</option>
+            </select><br><br><br>
+
+            Desarrollo del partido:<br>
+                <input type="radio" name="desarrollo" value="Sin incidentes" required> Sin incidentes<br>
+                <input type="radio" name="desarrollo" value="Con incidentes" required> Con incidentes<br>
+           <p> </p>
+        
+
+            <label for="incidentes">Incidentes reseñables: </label><br>
+                   <input type="checkbox" name="partidoBronco" id="partidoBronco" required> Partido bronco<br>
+                   <input type="checkbox" name="Expulsiones" value="expulsiones" id="conExpulsiones" required> Jugadores expulsados<br>
+                   <input type="checkbox" name="Suspension" id="sustension" required> Suspensión del encuentro<br>
+                   <br/> <br/>
+            <label for="observaciones1">Observaciones: </label><br>
+            <textarea name="observaciones1" id="observaciones1" rows="10" cols="50">Indique si tiene alguna observaciónn a tener en cuenta</textarea>
+            <br/> <br/>
+                   
+                   <input type="submit" value="Enviar" id="Enviar1" onchange="deshabilitarBotones()">
+                   <input type="reset" id="Reset1" value="Limpiar" onchange="deshabilitarBotones()>
+        </form>
+    </td>
+    
+   
+    </tr>
+    </table>
+    <script src="competiciones_comares.js"></script>
+</body>
+</html>

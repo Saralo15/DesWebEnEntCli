@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*body button {
+            margin:5px;
+            width:150px;
+            text-align:center;
+            border:1px solid;
+            background:#ccc;
+            padding:10px;
+            display:inline-block;
+            font-size:14px;
+            cursor:pointer;
+        }
+        .fuente1 {font-size:14px;}*/
+        
+        #fuente1:hover{
+            color: white;
+            background-color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <p id="fuente1">Una montaña es una forma topográfica del relieve terrestre positiva, una eminencia 
+    natural que se caracteriza por su altitud y, más generalmente, por su altura relativa, 
+    o incluso por su volumen, pendiente, espaciado o continuidad.</p>
+    <button onclick="aumentar(52)">Aumentar</button><button onclick="invertir()">Invertir</button><button onclick="crear()">Añadir</button><br>
+    <script>
+
+        function aumentar(num){
+        var font=parseInt(num);
+        document.getElementById('fuente1').style.fontSize=font+"px";
+        }
+        
+
+        function crear(){
+                let p = document.getElementById('fuente1');
+                let newElement = document.createElement('p');
+                newElement.textContent = 'Una montaña es una forma topográfica del relieve terrestre positiva, una eminencia natural que se caracteriza por su altitud y, más generalmente, por su altura relativa, o incluso por su volumen, pendiente, espaciado o continuidad.';
+
+                p.insertBefore(newElement, p.children[1]);
+                //añadirle una ip a este nuevo parrafo
+                newElement.setAttribute('id', 'fuente2');
+        }
+
+        function invertir() {
+            let p = document.getElementById('fuente1');
+            return p.split("").reverse().join("");
+        }
+            
+    </script>
+</body>
+</html>
